@@ -83,20 +83,6 @@ if [ -n "$ori" ] && [ -n "$max" ]; then
 }
 kito() {
 # // path & array
-settings put global touch.pressure.scale 0.001
-settings put system touch.pressure.scale 0.001
-settings put global windowsmgr.max_events_per_sec 180
-settings put system windowsmgr.max_events_per_sec 180
-settings put secure long_press_timeout 110
-settings put secure multi_press_timeout 50
-settings put system touch.scroll.calibration physical
-settings put system touch.surface_flinger.calibration physical
-settings put system touch.input_flinger.calibration physical
-settings put system view.scroll_friction 10
-settings put system pointer_speed 7
-settings put global window_animation_scale 0.5
-settings put global transition_animation_scale 0.5
-settings put global animator_duration_scale 0.5
     GMS1="auth.managed.admin.DeviceAdminReceiver"
     GMS2="mdm.receivers.MdmDeviceAdminReceiver"
     GMS3="com.google.android.gms"
