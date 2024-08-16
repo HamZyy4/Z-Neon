@@ -81,38 +81,6 @@ if [ -n "$ori" ] && [ -n "$max" ]; then
 		exit 1
 	fi
 }
-kito() {
-# // path & array
-    GMS1="auth.managed.admin.DeviceAdminReceiver"
-    GMS2="mdm.receivers.MdmDeviceAdminReceiver"
-    GMS3="com.google.android.gms"
-    appops_background=ignore
-    appops_foreground=ignore
-    standby_bucket=never
-    inactive=true
-
-# // GMS Fix Drain For [ Rooted ]
-    pm disable com.google.android.gms/.chimera.GmsIntentOperationService > /dev/null 2>&1 g
-
-# // Add GMS To Battery Optimization
-    dumpsys deviceidle whitelist -$GMS3
-    cmd appops set $GMS3 RUN_ANY_IN_BACKGROUND $appops_background
-    cmd appops set $GMS3 RUN_IN_BACKGROUND $appops_foreground
-    am set-inactive --user 0 $GMS3 $inactive
-    am set-standby-bucket --user 0 $GMS3 $standby_bucket
-}
-
-# // check failed or success
-check_function() {
-if kito > /dev/null 2>&1; then
-    sleep 5 && ui_print "[ - ] Success install free fire sensi"
-else
-    sleep 0.5 && ui_print "[ ! ] Failed install free fire sensi" && exit 1
-fi
-}
-
-# // call function
-check_function
 sleep 1
 
 
