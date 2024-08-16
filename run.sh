@@ -101,7 +101,6 @@ ui_print "[ - ] All Done"
 ui_print
 sleep 4.5
 open
-exit 1
 #
 # Credits
 # topjohnwu / Magisk - Magisk Module Template
