@@ -77,7 +77,7 @@ if [ -n "$ori" ] && [ -n "$max" ]; then
 	    svc wifi enable
   		cmd connectivity airplane-mode disable
       svc data enable
-		text "Silahkan install Free Fire terlebih dahulu."
+		echo "Silahkan install Free Fire terlebih dahulu."
 		exit 1
 	fi
 }
