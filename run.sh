@@ -22,6 +22,8 @@ ANDROIDVERSION=$(getprop ro.build.version.release)
 DATE="16 - 8 - 2024"
 DEVICES=$(getprop ro.product.board)
 MANUFACTURER=$(getprop ro.product.manufacturer)
+ori=com.dts.freefireth
+max=com.dts.freefiremax
 
 # // The message that appears in the terminal
 sleep 0.5
