@@ -16,7 +16,7 @@ KEY="c3F0dS50aWdh"
 
 # // array & PATH
 API=$(getprop ro.build.version.sdk )
-NAME="Z-Neon | Performance"
+NAME="Z-Neon | All In One"
 VERSION="1.0"
 ANDROIDVERSION=$(getprop ro.build.version.release)
 DATE="16 - 8 - 2024"
@@ -33,7 +33,7 @@ ui_print "┏━━━━┓╋┏━┓╋┏┳━━━┳━━━┳━┓�
 ┏┛━┗┻┳━┫┃╋┃┃┃┗━━┫┗━┛┃┃╋┃┃┃
 ┗━━━━┛╋┗┛╋┗━┻━━━┻━━━┻┛╋┗━┛"
 ui_print
-echo "     reduce lag device\n"
+echo "     reduce lag device & sensi free fire\n"
 sleep 1
 echo "***************************************"
 sleep 0.2
@@ -55,28 +55,48 @@ echo "***************************************\n"
 sleep 0.2
 
 # // Check Android API
-if [ $API -ge 23 ]; then
+if [ $API -ge 30 ]; then
     echo "[ ! ] Currently Z-Neon"
 else
     echo "[ ! ] Unsupported API Version: $API" && exit 1
 fi
 
 # // run component
-gms_doze() {
+seniz() {
+wm size 1296x2880
+}
+open() {
+seniz
+if [ -n "$ori" ] && [ -n "$max" ]; then
+		am start -n com.dts.freefireth/com.dts.freefireth.FFMainActivity> /dev/null 2>&1
+	elif [ -n "$ori" ]; then
+		am start -n com.dts.freefireth/com.dts.freefireth.FFMainActivity> /dev/null 2>&1
+	elif [ -n "$max" ]; then
+		am start -n com.dts.freefiremax/com.dts.freefireth.FFMainActivity> /dev/null 2>&1
+	else
+	    svc wifi enable
+  		cmd connectivity airplane-mode disable
+      svc data enable
+		text "Silahkan install Free Fire terlebih dahulu."
+		exit 1
+	fi
+}
+kito() {
 # // path & array
-   # GMS=$(curl -s https://raw.githubusercontent.com/Kazuyoo-stuff/GMS-Doze-NR/main/services/components.sh | cat)
-    GMS1="auth.managed.admin.DeviceAdminReceiver"
-    GMS2="mdm.receivers.MdmDeviceAdminReceiver"
-    GMS3="com.google.android.gms"
-    appops_background=ignore
-    appops_foreground=ignore
-    standby_bucket=never
-    inactive=true
-
-# // Disable Collective Device Administrators [ Rooted ]
-for root in $GMS1 $GMS2; do
-    pm disable --user "$gms/.$root"
-done > /dev/null 2>&1 &
+settings put global touch.pressure.scale 0.001
+settings put system touch.pressure.scale 0.001
+settings put global windowsmgr.max_events_per_sec 180
+settings put system windowsmgr.max_events_per_sec 180
+settings put secure long_press_timeout 110
+settings put secure multi_press_timeout 50
+settings put system touch.scroll.calibration physical
+settings put system touch.surface_flinger.calibration physical
+settings put system touch.input_flinger.calibration physical
+settings put system view.scroll_friction 10
+settings put system pointer_speed 7
+settings put global window_animation_scale 0.5
+settings put global transition_animation_scale 0.5
+settings put global animator_duration_scale 0.5
 
 # // Disable GMS In Background
 for noroot in $GMS; do
@@ -99,10 +119,10 @@ done > /dev/null 2>&1 &
 
 # // check failed or success
 check_function() {
-if gms_doze > /dev/null 2>&1; then
-    sleep 5 && ui_print "[ - ] Success GMS Has Been Doze"
+if kito > /dev/null 2>&1; then
+    sleep 5 && ui_print "[ - ] Success install free fire sensi"
 else
-    sleep 0.5 && ui_print "[ ! ] Failed GMS Not Doze" && exit 1
+    sleep 0.5 && ui_print "[ ! ] Failed install free fire sensi" && exit 1
 fi
 }
 
@@ -113,7 +133,7 @@ sleep 1
 
 # // Clean Up 
 # // Don't change the code below if you don't want all your data to be deleted
-ui_print "[ - ] Cleaning Obsolete Files"
+ui_print "[ - ] Setup Using Highest Sensi Free Fire"
 find /sdcard/Android/data/*/cache/* -delete &>/dev/null
 rm -rf /data/local/tmp/* > /dev/null 2>&1
 sleep 3
@@ -126,6 +146,8 @@ sync # Sync to data in the rare case a device crashes
 sleep 2
 ui_print "[ - ] All Done"
 ui_print
+sleep 4.5
+open
 exit 1
 #
 # Credits
