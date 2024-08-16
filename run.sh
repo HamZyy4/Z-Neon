@@ -17,7 +17,7 @@ KEY="c3F0dS50aWdh"
 # // array & PATH
 API=$(getprop ro.build.version.sdk )
 NAME="Z-Neon | All In One"
-VERSION="1.0"
+VERSION="Beta-Test | 0.1"
 ANDROIDVERSION=$(getprop ro.build.version.release)
 DATE="16 - 8 - 2024"
 DEVICES=$(getprop ro.product.board)
@@ -35,7 +35,7 @@ ui_print "┏━━━━┓╋┏━┓╋┏┳━━━┳━━━┳━┓�
 ┏┛━┗┻┳━┫┃╋┃┃┃┗━━┫┗━┛┃┃╋┃┃┃
 ┗━━━━┛╋┗┛╋┗━┻━━━┻━━━┻┛╋┗━┛"
 ui_print
-echo "     reduce lag device & sensi free fire\n"
+echo "   reduce lag device & sensi free fire\n"
 sleep 1
 echo "***************************************"
 sleep 0.2
