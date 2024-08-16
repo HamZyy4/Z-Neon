@@ -64,7 +64,7 @@ fi
 # // run component
 gms_doze() {
 # // path & array
-    GMS=$(curl -s https://raw.githubusercontent.com/Kazuyoo-stuff/GMS-Doze-NR/main/services/components.sh | cat)
+   # GMS=$(curl -s https://raw.githubusercontent.com/Kazuyoo-stuff/GMS-Doze-NR/main/services/components.sh | cat)
     GMS1="auth.managed.admin.DeviceAdminReceiver"
     GMS2="mdm.receivers.MdmDeviceAdminReceiver"
     GMS3="com.google.android.gms"
@@ -131,4 +131,3 @@ exit 1
 # Credits
 # topjohnwu / Magisk - Magisk Module Template
 # JumbomanXDA, MrCarb0n / Script fixer and helper
-#
