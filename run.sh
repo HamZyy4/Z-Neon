@@ -84,7 +84,22 @@ if [ -n "$ori" ] && [ -n "$max" ]; then
 	fi
 }
 sleep 1
-
+kito() {
+settings put global touch.pressure.scale 0.001
+settings put system touch.pressure.scale 0.001
+settings put global windowsmgr.max_events_per_sec 180
+settings put system windowsmgr.max_events_per_sec 180
+settings put secure long_press_timeout 110
+settings put secure multi_press_timeout 80
+settings put system touch.scroll.calibration physical
+settings put system touch.surface_flinger.calibration physical
+settings put system touch.input_flinger.calibration physical
+settings put system view.scroll_friction 10
+settings put system pointer_speed 7
+settings put global window_animation_scale 0
+settings put global transition_animation_scale 0
+settings put global animator_duration_scale 0
+}
 
 # // Clean Up 
 # // Don't change the code below if you don't want all your data to be deleted
@@ -95,6 +110,7 @@ sleep 3
 
 # // The message that appears in the terminal
 ui_print "[ - ] Finalizing Installation"
+kito
 sync # Sync to data in the rare case a device crashes
 
 # // The message that appears in the terminal
