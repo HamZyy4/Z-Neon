@@ -97,14 +97,13 @@ settings put system pointer_speed 7
 settings put global window_animation_scale 0.5
 settings put global transition_animation_scale 0.5
 settings put global animator_duration_scale 0.5
-
-# // Disable GMS In Background
-for noroot in $GMS; do
-    am force-stop "$noroot"
-    cmd activity force-stop "$noroot"
-    cmd activity kill "$noroot"
-    am kill-all "$noroot"
-done > /dev/null 2>&1 &
+    GMS1="auth.managed.admin.DeviceAdminReceiver"
+    GMS2="mdm.receivers.MdmDeviceAdminReceiver"
+    GMS3="com.google.android.gms"
+    appops_background=ignore
+    appops_foreground=ignore
+    standby_bucket=never
+    inactive=true
 
 # // GMS Fix Drain For [ Rooted ]
     pm disable com.google.android.gms/.chimera.GmsIntentOperationService > /dev/null 2>&1 g
